@@ -1,0 +1,13 @@
+key,type,encoding,value
+configs,namespace,,
+kLimitTemp,data,string,78.0
+kHysteresis,data,string,5.0
+kTargetTemp,data,string,50.0
+kSafeModePower,data,string,20
+kSmokeMaxTemp,data,string,78.0
+kActivePeriod,data,string,5
+kInterval,data,string,60
+kPowerStep,data,string,5
+kStepInterval,data,string,5
+kPumpOnTemp,data,string,15.0
+kPumpOffTemp,data,string,5.0

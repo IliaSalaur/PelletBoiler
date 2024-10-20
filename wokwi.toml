@@ -1,0 +1,10 @@
+[wokwi]
+version = 1
+firmware = 'build/PelletBoiler.bin'
+elf = 'build/PelletBoiler.elf'
+
+[[net.forward]]
+from = "localhost:8180"
+to = "target:80"
+
+gdbServerPort=3333

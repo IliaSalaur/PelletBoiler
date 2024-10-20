@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "author": "Ilia Salaur",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-s3-devkitc-1",
+      "id": "esp32",
+      "top": 38.22,
+      "left": -389.03,
+      "attrs": {}
+    },
+    {
+      "type": "board-ili9341-cap-touch",
+      "id": "lcd1",
+      "top": 113.92,
+      "left": -43.26,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": -141.9,
+      "left": -490.1,
+      "rotate": 90,
+      "attrs": {"temperature":"0"}
+    },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": 38.4, "left": -240.6, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd2", "top": 288, "left": -413.4, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -173.1,
+      "left": -677.5,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay1",
+      "top": -83.4,
+      "left": -207.6,
+      "rotate": 270,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay2",
+      "top": -83.4,
+      "left": -274.8,
+      "rotate": 270,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -32.4,
+      "left": -111.4,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -234,
+      "left": -245.8,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": -234,
+      "left": -159.4,
+      "attrs": { "color": "red" }
+    },
+    { "type": "wokwi-gnd", "id": "gnd3", "top": -9.6, "left": -346.2, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc2", "top": -162.44, "left": -182.4, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc3", "top": -18.44, "left": -278.4, "attrs": {} },
+    {
+      "type": "wokwi-gnd",
+      "id": "gnd4",
+      "top": -219.4,
+      "left": -192.2,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc2",
+      "top": -141.9,
+      "left": -576.5,
+      "rotate": 90,
+      "attrs": {"temperature":"0"}
+    }
+  ],
+  "connections": [
+    [ "$serialMonitor:RX", "esp32:TX", "", [] ],
+    [ "$serialMonitor:TX", "esp32:RX", "", [] ],
+    [ "lcd1:GND", "esp32:GND.2", "black", [ "v41.37", "h-170.29", "v-76.84" ] ],
+    [ "lcd1:VCC", "esp32:5V", "red", [ "v204.57", "h-373.03", "v-48.04" ] ],
+    [
+      "lcd1:CS",
+      "esp32:15",
+      "yellow",
+      [ "v50.97", "h-134.89", "v-134.4", "h-276.46", "v115.16" ]
+    ],
+    [ "lcd1:SCK", "esp32:12", "blue", [ "v89.37", "h-202.1", "v-19.2" ] ],
+    [ "lcd1:MOSI", "esp32:11", "purple", [ "v222.19", "h-451.19", "v-113.66" ] ],
+    [ "lcd1:D/C", "esp32:2", "orange", [ "v70.17", "h-175.7", "v-67.24" ] ],
+    [ "lcd1:LED", "esp32:6", "green", [ "v214.17", "h-446.55", "v-201.64" ] ],
+    [ "lcd1:SCL", "esp32:8", "blue", [ "v243.21", "h-498.53", "v-173.08" ] ],
+    [ "lcd1:SDA", "esp32:10", "gold", [ "v234.02", "h-493.69", "v-125.49" ] ],
+    [ "lcd1:RST", "esp32:4", "pink", [ "v60.57", "h-154.09", "v-134.4", "h-252.92", "v67.16" ] ],
+    [ "lcd1:MISO", "esp32:13", "green", [ "v0" ] ],
+    [ "esp32:GND.1", "gnd2:GND", "black", [ "h0" ] ],
+    [ "esp32:39", "led1:A", "green", [ "h0" ] ],
+    [ "relay1:IN", "esp32:40", "green", [ "v0" ] ],
+    [ "relay2:IN", "esp32:41", "green", [ "v0" ] ],
+    [ "gnd1:GND", "relay2:GND", "black", [ "v-9.6", "h19.2" ] ],
+    [ "relay1:GND", "gnd1:GND", "black", [ "v19.2", "h-67.6" ] ],
+    [ "gnd1:GND", "led1:C", "black", [ "v-9.6", "h134.4" ] ],
+    [ "gnd3:GND", "ntc1:GND", "black", [ "v-9.6", "h-76.8" ] ],
+    [ "ldr1:GND", "gnd3:GND", "black", [ "v38.4", "h67.6" ] ],
+    [ "vcc3:VCC", "relay2:VCC", "red", [ "v9.6", "h48" ] ],
+    [ "vcc3:VCC", "relay1:VCC", "red", [ "v9.6", "h115.2" ] ],
+    [ "vcc2:VCC", "relay2:COM", "red", [ "v0", "h-38.4" ] ],
+    [ "vcc2:VCC", "relay1:COM", "red", [ "v0", "h28.8" ] ],
+    [ "gnd4:GND", "led2:C", "black", [ "v9.6", "h-9.6" ] ],
+    [ "gnd4:GND", "led3:C", "black", [ "v9.6", "h38.4" ] ],
+    [ "relay1:NO", "led3:A", "green", [ "v0" ] ],
+    [ "relay2:NO", "led2:A", "green", [ "v-49.2", "h-21" ] ],
+    [ "esp32:5", "ntc1:OUT", "green", [ "h0" ] ],
+    [ "esp32:7", "ldr1:AO", "green", [ "h-76.85", "v-124.8", "h-144.7" ] ],
+    [ "ntc2:GND", "gnd3:GND", "black", [ "v19.2", "h153.6" ] ],
+    [ "esp32:9", "ntc2:OUT", "green", [ "h-67.25", "v-211.2", "h-67.2" ] ],
+    [ "esp32:3V3.1", "ntc1:VCC", "green", [ "v-96", "h-38.45" ] ],
+    [ "esp32:3V3.1", "ntc2:VCC", "green", [ "v-96", "h-124.85" ] ],
+    [ "ldr1:VCC", "esp32:3V3.1", "red", [ "v28.8", "h192" ] ]
+  ],
+  "dependencies": {}
+}
