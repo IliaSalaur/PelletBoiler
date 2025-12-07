@@ -16,14 +16,13 @@ PelletBoiler is a firmware project designed to manage and visualize the operatio
 - **ESP-IDF (Espressif IoT Development Framework)**: To power the embedded firmware on ESP32 hardware.
 - **CMake**: Build system for compiling and organizing project dependencies.
 - **C and C++**: Primary programming languages used to achieve low-level hardware interaction and high-level logic.
-- **JSON Configurations**: Dynamic configuration management via `.json` files.
 
 ## File Organization
 
 - **`main`**: Contains the core firmware logic.
 - **`lvgl_uifiles`**: UI layouts and assets designed with LVGL.
 - **`DynamicConfig`**: Handles dynamic settings and configurations.
-- **`diagram.json`**: Represents functional diagrams or configuration schemas.
+- **`diagram.json`**: Wokwi schema file. Used for emulating the device.
 - **`sdkconfig`/`sdkconfig.defaults`**: Configuration files for ESP-IDF.
 
 ## Getting Started
